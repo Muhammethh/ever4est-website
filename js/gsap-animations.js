@@ -391,85 +391,52 @@ function initParticleBackground() {
   });
 }
 
-// ========== CURSOR BLOB (Liquid Gradient - inspired by heycalli.com) ==========
+// ========== CURSOR BLOB (WebGL Fluid Simulation - inspired by heycalli.com) ==========
 function initCursorTrail() {
   // Only on desktop with fine pointer
   if (window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window) return;
 
-  const trailContainer = document.getElementById('cursorTrail');
-  if (trailContainer) trailContainer.remove();
+  const canvas = document.getElementById('fluidCanvas');
+  if (!canvas || typeof WebGLFluid !== 'function') return;
 
-  // Create blob element (large gradient glow)
-  const blob = document.createElement('div');
-  blob.className = 'cursor-blob';
-  document.body.appendChild(blob);
-
-  // Create dot element (small precision cursor)
-  const dot = document.createElement('div');
-  dot.className = 'cursor-dot';
-  document.body.appendChild(dot);
-
-  let mouseX = -500, mouseY = -500;
-  let blobX = -500, blobY = -500;
-  let dotX = -500, dotY = -500;
-  let isHovering = false;
-
-  // Show after first mouse move
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    if (!blob.classList.contains('active')) {
-      blob.classList.add('active');
-      dot.classList.add('active');
-    }
+  // Initialize the fluid simulation
+  // This creates the smoke-like fluid effect that follows the cursor
+  WebGLFluid(canvas, {
+    TRIGGER: 'hover',        // Trigger on mouse move/hover
+    IMMEDIATE: false,        // Don't splat randomly on load
+    NUM_DYES: 3,             // Number of colors
+    DENSITY_DISSIPATION: 2.5,// How fast the smoke disappears (higher = faster)
+    VELOCITY_DISSIPATION: 2.0,// How fast the movement stops
+    PRESSURE: 0.1,           // Fluid pressure
+    PRESSURE_ITERATIONS: 20, // Fluid quality
+    CURL: 3,                 // Swirl amount
+    SPLAT_RADIUS: 0.15,      // Size of the cursor splat
+    SPLAT_FORCE: 6000,       // Speed of the fluid injection
+    SHADING: true,           // Give it a 3D/glow feel
+    COLORFUL: false,         // We want specific colors, not random RGB
+    COLOR_UPDATE_SPEED: 10,
+    PAUSED: false,
+    BACK_COLOR: { r: 0, g: 0, b: 0, a: 0 }, // Transparent background
+    TRANSPARENT: true,
+    BLOOM: true,             // Add glow
+    BLOOM_ITERATIONS: 8,
+    BLOOM_RESOLUTION: 256,
+    BLOOM_INTENSITY: 0.8,
+    BLOOM_THRESHOLD: 0.6,
+    BLOOM_SOFT_KNEE: 0.7,
+    SUNRAYS: true,           // Light rays through the smoke
+    SUNRAYS_RESOLUTION: 196,
+    SUNRAYS_WEIGHT: 1.0,
   });
 
-  // Hide when mouse leaves the window
-  document.addEventListener('mouseleave', () => {
-    blob.classList.remove('active');
-    dot.classList.remove('active');
-  });
-  document.addEventListener('mouseenter', () => {
-    blob.classList.add('active');
-    dot.classList.add('active');
-  });
-
-  // Detect hover on interactive elements
-  const interactiveSelector = 'a, button, input, select, textarea, .service-card, .why-card, .value-card, .nav-brand, .whatsapp-btn, .cta-box';
-  document.querySelectorAll(interactiveSelector).forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      isHovering = true;
-      blob.classList.add('hovering');
-      dot.classList.add('hovering');
-    });
-    el.addEventListener('mouseleave', () => {
-      isHovering = false;
-      blob.classList.remove('hovering');
-      dot.classList.remove('hovering');
-    });
-  });
-
-  // Animation loop — blob follows with inertia, dot follows closely
-  function animate() {
-    // Blob: smooth follow with heavy lerp (creates the liquid/inertia feel)
-    const blobSpeed = 0.08;
-    blobX += (mouseX - blobX) * blobSpeed;
-    blobY += (mouseY - blobY) * blobSpeed;
-    blob.style.left = blobX + 'px';
-    blob.style.top = blobY + 'px';
-
-    // Dot: quick follow
-    const dotSpeed = 0.25;
-    dotX += (mouseX - dotX) * dotSpeed;
-    dotY += (mouseY - dotY) * dotSpeed;
-    dot.style.left = dotX + 'px';
-    dot.style.top = dotY + 'px';
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
+  // Since we set COLORFUL: false, the default color is mostly white/gray in the library
+  // To make it green like Ever4est, we can use the library's built in color or inject specific splats
+  // A simpler way is to let the script run, but the WebGLFluid library automatically randomizes colors
+  // if we set COLORFUL: true. Let's enable COLORFUL but the WebGLFluid default doesn't let us easily 
+  // set a specific palette through simple options without modifying its source in some versions.
+  // Actually, setting COLORFUL: true creates a rainbow. 
+  // Wait, let's just add a green tint via CSS since the canvas has a transparent background!
+  canvas.style.filter = "sepia(1) hue-rotate(90deg) saturate(300%) brightness(1.2)";
 }
 
 // ========== DARK/LIGHT MODE TOGGLE ==========
