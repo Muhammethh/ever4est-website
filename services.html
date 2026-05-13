@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hizmetlerimiz — Ever4est</title>
+  <meta name="description" content="Ever4est IT hizmetleri: Restoran otomasyonu, kamera sistemleri, bilişim çözümleri ve teknik destek.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logolar/logo_new.png" type="image/png">
+</head>
+<body>
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+
+  <!-- PARTICLE BACKGROUND -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- CURSOR TRAIL -->
+  <div id="cursorTrail"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+        <li><a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="services.html" class="active" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a></li>
+        <li><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="lang-toggle"><button class="active" data-lang="tr">TR</button><button data-lang="en">EN</button></div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+    <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+    <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <h1 class="reveal" data-tr="Hizmetlerimiz" data-en="Our Services">Hizmetlerimiz</h1>
+      <p class="reveal reveal-delay-1" data-tr="İşletmeniz için kapsamlı IT çözümleri." data-en="Comprehensive IT solutions for your business.">İşletmeniz için kapsamlı IT çözümleri.</p>
+      <div class="breadcrumb reveal reveal-delay-2">
+        <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+        <span class="sep">/</span>
+        <span data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 1: RESTAURANT -->
+  <section class="section">
+    <div class="container">
+      <div class="service-detail">
+        <div class="service-detail-content reveal">
+          <span class="section-label"><span class="line"></span> <span data-tr="RESTORAN OTOMASYONU" data-en="RESTAURANT AUTOMATION">RESTORAN OTOMASYONU</span></span>
+          <h2 data-tr="Restoran Otomasyon Yazılımları" data-en="Restaurant Automation Software">Restoran Otomasyon Yazılımları</h2>
+          <p data-tr="Restoranınızın tüm operasyonlarını dijitalleştiren, sipariş yönetiminden stok takibine kadar her şeyi kontrol altına alan profesyonel otomasyon çözümleri sunuyoruz." data-en="We offer professional automation solutions that digitize all your restaurant operations, controlling everything from order management to stock tracking.">Restoranınızın tüm operasyonlarını dijitalleştiren, sipariş yönetiminden stok takibine kadar her şeyi kontrol altına alan profesyonel otomasyon çözümleri sunuyoruz.</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="POS (Satış Noktası) yazılımları satışı ve kurulumu" data-en="POS (Point of Sale) software sales and installation">POS (Satış Noktası) yazılımları satışı ve kurulumu</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Sipariş ve masa yönetim sistemleri" data-en="Order and table management systems">Sipariş ve masa yönetim sistemleri</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Stok takibi ve envanter yönetimi" data-en="Stock tracking and inventory management">Stok takibi ve envanter yönetimi</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Mutfak ekranı ve garson çağrı sistemleri" data-en="Kitchen display and waiter call systems">Mutfak ekranı ve garson çağrı sistemleri</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="7/24 teknik destek ve bakım hizmeti" data-en="24/7 technical support and maintenance service">7/24 teknik destek ve bakım hizmeti</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-detail-img reveal reveal-delay-1">
+          <img src="assets/images/restaurant.png" alt="Restoran Otomasyonu">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 2: CAMERA -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="service-detail">
+        <div class="service-detail-img reveal">
+          <img src="assets/images/camera.png" alt="Kamera Sistemleri">
+        </div>
+        <div class="service-detail-content reveal reveal-delay-1">
+          <span class="section-label"><span class="line"></span> <span data-tr="KAMERA SİSTEMLERİ" data-en="CAMERA SYSTEMS">KAMERA SİSTEMLERİ</span></span>
+          <h2 data-tr="Güvenlik Kamera Sistemleri" data-en="Security Camera Systems">Güvenlik Kamera Sistemleri</h2>
+          <p data-tr="İş yeriniz ve mülkünüz için profesyonel güvenlik kamera sistemi kurulumu, uzaktan izleme ve bakım hizmetleri sunuyoruz." data-en="We offer professional security camera system installation, remote monitoring, and maintenance services for your business and property.">İş yeriniz ve mülkünüz için profesyonel güvenlik kamera sistemi kurulumu, uzaktan izleme ve bakım hizmetleri sunuyoruz.</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="IP ve analog kamera sistemi kurulumu" data-en="IP and analog camera system installation">IP ve analog kamera sistemi kurulumu</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="NVR/DVR kayıt cihazı kurulumu ve yapılandırma" data-en="NVR/DVR recorder setup and configuration">NVR/DVR kayıt cihazı kurulumu ve yapılandırma</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Uzaktan izleme ve mobil erişim kurulumu" data-en="Remote monitoring and mobile access setup">Uzaktan izleme ve mobil erişim kurulumu</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Mevcut sistemlerin bakım ve onarımı" data-en="Maintenance and repair of existing systems">Mevcut sistemlerin bakım ve onarımı</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Profesyonel keşif ve danışmanlık hizmeti" data-en="Professional survey and consultation service">Profesyonel keşif ve danışmanlık hizmeti</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 3: IT -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="service-detail">
+        <div class="service-detail-content reveal">
+          <span class="section-label"><span class="line"></span> <span data-tr="BİLİŞİM ÇÖZÜMLERİ" data-en="IT SOLUTIONS">BİLİŞİM ÇÖZÜMLERİ</span></span>
+          <h2 data-tr="Bilgisayar ve Bilişim Hizmetleri" data-en="Computer and IT Services">Bilgisayar ve Bilişim Hizmetleri</h2>
+          <p data-tr="Bilgisayar ve bilişim cihazlarının satışından kurulumuna, ağ altyapısından teknik desteğe kadar kapsamlı bilişim hizmetleri." data-en="Comprehensive IT services from computer and IT device sales to installation, from network infrastructure to technical support.">Bilgisayar ve bilişim cihazlarının satışından kurulumuna, ağ altyapısından teknik desteğe kadar kapsamlı bilişim hizmetleri.</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Bilgisayar ve bilişim cihazları satışı" data-en="Computer and IT device sales">Bilgisayar ve bilişim cihazları satışı</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Donanım kurulumu ve yapılandırma" data-en="Hardware installation and configuration">Donanım kurulumu ve yapılandırma</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Ağ altyapısı kurulumu (LAN, Wi-Fi, VPN)" data-en="Network infrastructure setup (LAN, Wi-Fi, VPN)">Ağ altyapısı kurulumu (LAN, Wi-Fi, VPN)</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Yazılım kurulumu ve lisanslama" data-en="Software installation and licensing">Yazılım kurulumu ve lisanslama</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span data-tr="Arıza tespiti ve teknik servis hizmeti" data-en="Troubleshooting and technical service">Arıza tespiti ve teknik servis hizmeti</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-detail-img reveal reveal-delay-1">
+          <img src="assets/images/computer.png" alt="Bilişim Çözümleri">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2 data-tr="Hizmetlerimiz Hakkında Bilgi Alın" data-en="Get Information About Our Services">Hizmetlerimiz Hakkında Bilgi Alın</h2>
+        <p data-tr="Size en uygun çözümü sunmak için buradayız. Hemen iletişime geçin." data-en="We're here to offer you the most suitable solution. Contact us now.">Size en uygun çözümü sunmak için buradayız. Hemen iletişime geçin.</p>
+        <a href="contact.html" class="btn btn-primary" data-tr="Teklif Alın" data-en="Get a Quote">Teklif Alın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand">
+            <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+          </a>
+          <p data-tr="Teknolojide güvenilir çözüm ortağınız." data-en="Your reliable technology solutions partner.">Teknolojide güvenilir çözüm ortağınız.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="Sayfalar" data-en="Pages">Sayfalar</h4>
+          <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+          <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+          <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+          <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="Hizmetler" data-en="Services">Hizmetler</h4>
+          <a href="services.html" data-tr="Restoran Otomasyonu" data-en="Restaurant Automation">Restoran Otomasyonu</a>
+          <a href="services.html" data-tr="Kamera Sistemleri" data-en="Camera Systems">Kamera Sistemleri</a>
+          <a href="services.html" data-tr="Bilişim Çözümleri" data-en="IT Solutions">Bilişim Çözümleri</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+          <a href="tel:+905001234567">+90 500 123 45 67</a>
+          <a href="mailto:info@ever4est.com">info@ever4est.com</a>
+          <a data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Ever4est. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></span>
+        <span data-tr="IT Çözüm Hizmetleri" data-en="IT Solution Services">IT Çözüm Hizmetleri</span>
+      </div>
+    </div>
+  </footer>
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/905001234567" target="_blank" class="whatsapp-btn" id="whatsappBtn" aria-label="WhatsApp">
+    <span class="whatsapp-tooltip" data-tr="Bize Ulaşın" data-en="Contact Us">Bize Ulaşın</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-tooltip" data-tr="Bize Yazın" data-en="Chat with Us">Bize Yazın</span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/gsap-animations.js"></script>
+</body>
+</html>
+

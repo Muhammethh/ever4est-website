@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ever4est — IT Çözüm Hizmetleri</title>
+  <meta name="description" content="Ever4est, restoran otomasyonu, kamera sistemleri ve bilişim çözümleri alanında profesyonel IT hizmetleri sunar.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logolar/logo_new.png" type="image/png">
+</head>
+<body>
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+
+  <!-- PARTICLE BACKGROUND -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- CURSOR TRAIL -->
+  <div id="cursorTrail"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+        <li><a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a></li>
+        <li><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="lang-toggle">
+          <button class="active" data-lang="tr">TR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+    <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+    <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="dot"></span>
+          <span data-tr="IT Çözüm Ortağınız" data-en="Your IT Solutions Partner">IT Çözüm Ortağınız</span>
+        </div>
+        <h1 class="reveal reveal-delay-1">
+          <span data-tr="Teknolojide " data-en="Reliable ">Teknolojide </span>
+          <span class="gradient-text" data-tr="Güvenilir" data-en="Technology">Güvenilir</span><br>
+          <span data-tr="Çözüm Ortağınız" data-en="Solutions Partner">Çözüm Ortağınız</span>
+        </h1>
+        <p class="reveal reveal-delay-2" data-tr="Restoran otomasyonundan kamera sistemlerine, bilişim altyapısından teknik desteğe kadar tüm IT ihtiyaçlarınız için profesyonel çözümler sunuyoruz." data-en="We provide professional solutions for all your IT needs, from restaurant automation to camera systems, IT infrastructure to technical support.">Restoran otomasyonundan kamera sistemlerine, bilişim altyapısından teknik desteğe kadar tüm IT ihtiyaçlarınız için profesyonel çözümler sunuyoruz.</p>
+        <div class="hero-buttons reveal reveal-delay-3">
+          <a href="services.html" class="btn btn-primary" data-tr="Hizmetlerimiz" data-en="Our Services">Hizmetlerimiz</a>
+          <a href="contact.html" class="btn btn-outline" data-tr="İletişime Geçin" data-en="Contact Us">İletişime Geçin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section" id="services-preview">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label"><span class="line"></span> <span data-tr="HİZMETLERİMİZ" data-en="OUR SERVICES">HİZMETLERİMİZ</span></span>
+        <h2 class="section-title" data-tr="Sunduğumuz Çözümler" data-en="Solutions We Offer">Sunduğumuz Çözümler</h2>
+        <p class="section-desc" data-tr="İşletmenizin dijital dönüşümünü hızlandıracak kapsamlı IT çözümleri." data-en="Comprehensive IT solutions to accelerate your business's digital transformation.">İşletmenizin dijital dönüşümünü hızlandıracak kapsamlı IT çözümleri.</p>
+      </div>
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card reveal reveal-delay-1">
+          <img src="assets/images/restaurant.png" alt="Restoran Otomasyonu" class="service-card-img">
+          <div class="service-card-body">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+            </div>
+            <h3 data-tr="Restoran Otomasyonu" data-en="Restaurant Automation">Restoran Otomasyonu</h3>
+            <p data-tr="POS yazılımları, sipariş yönetim sistemleri ve stok takibi çözümleriyle restoranınızı dijitalleştirin." data-en="Digitize your restaurant with POS software, order management systems, and stock tracking solutions.">POS yazılımları, sipariş yönetim sistemleri ve stok takibi çözümleriyle restoranınızı dijitalleştirin.</p>
+            <a href="services.html" class="card-link">
+              <span data-tr="Detaylı Bilgi" data-en="Learn More">Detaylı Bilgi</span> →
+            </a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="service-card reveal reveal-delay-2">
+          <img src="assets/images/camera.png" alt="Kamera Sistemleri" class="service-card-img">
+          <div class="service-card-body">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+            </div>
+            <h3 data-tr="Kamera Sistemleri" data-en="Camera Systems">Kamera Sistemleri</h3>
+            <p data-tr="CCTV kurulumu, uzaktan izleme sistemleri ve güvenlik kamerası bakım hizmetleri." data-en="CCTV installation, remote monitoring systems, and security camera maintenance services.">CCTV kurulumu, uzaktan izleme sistemleri ve güvenlik kamerası bakım hizmetleri.</p>
+            <a href="services.html" class="card-link">
+              <span data-tr="Detaylı Bilgi" data-en="Learn More">Detaylı Bilgi</span> →
+            </a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="service-card reveal reveal-delay-3">
+          <img src="assets/images/computer.png" alt="Bilişim Çözümleri" class="service-card-img">
+          <div class="service-card-body">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 data-tr="Bilişim Çözümleri" data-en="IT Solutions">Bilişim Çözümleri</h3>
+            <p data-tr="Bilgisayar ve bilişim cihazları satışı, kurulumu, ağ altyapısı ve teknik destek hizmetleri." data-en="Computer and IT device sales, installation, network infrastructure, and technical support services.">Bilgisayar ve bilişim cihazları satışı, kurulumu, ağ altyapısı ve teknik destek hizmetleri.</p>
+            <a href="services.html" class="card-link">
+              <span data-tr="Detaylı Bilgi" data-en="Learn More">Detaylı Bilgi</span> →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number">10+</div>
+          <div class="stat-label" data-tr="Yıllık Deneyim" data-en="Years Experience">Yıllık Deneyim</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number">500+</div>
+          <div class="stat-label" data-tr="Mutlu Müşteri" data-en="Happy Clients">Mutlu Müşteri</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number">1200+</div>
+          <div class="stat-label" data-tr="Tamamlanan Proje" data-en="Completed Projects">Tamamlanan Proje</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number">7/24</div>
+          <div class="stat-label" data-tr="Teknik Destek" data-en="Technical Support">Teknik Destek</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label"><span class="line"></span> <span data-tr="NEDEN BİZ?" data-en="WHY US?">NEDEN BİZ?</span></span>
+        <h2 class="section-title" data-tr="Farkımızı Keşfedin" data-en="Discover Our Difference">Farkımızı Keşfedin</h2>
+        <p class="section-desc" data-tr="Profesyonel ekibimiz ve kaliteli hizmet anlayışımızla yanınızdayız." data-en="We're by your side with our professional team and quality service approach.">Profesyonel ekibimiz ve kaliteli hizmet anlayışımızla yanınızdayız.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4 data-tr="7/24 Teknik Destek" data-en="24/7 Technical Support">7/24 Teknik Destek</h4>
+            <p data-tr="Her an ulaşabileceğiniz teknik destek ekibimizle sorunlarınıza anında çözüm." data-en="Instant solutions to your problems with our technical support team available at any time.">Her an ulaşabileceğiniz teknik destek ekibimizle sorunlarınıza anında çözüm.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4 data-tr="Güvenilir Hizmet" data-en="Reliable Service">Güvenilir Hizmet</h4>
+            <p data-tr="Yılların verdiği tecrübe ve profesyonellikle güvenilir çözümler sunuyoruz." data-en="We offer reliable solutions with years of experience and professionalism.">Yılların verdiği tecrübe ve profesyonellikle güvenilir çözümler sunuyoruz.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <h4 data-tr="Hızlı Çözümler" data-en="Fast Solutions">Hızlı Çözümler</h4>
+            <p data-tr="Minimum sürede maksimum verimlilik sağlayan hızlı ve etkili çözümler." data-en="Quick and effective solutions that provide maximum efficiency in minimum time.">Minimum sürede maksimum verimlilik sağlayan hızlı ve etkili çözümler.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <h4 data-tr="Uygun Fiyat" data-en="Affordable Pricing">Uygun Fiyat</h4>
+            <p data-tr="Kaliteli hizmeti uygun fiyatlarla sunarak bütçenize saygı duyuyoruz." data-en="We respect your budget by offering quality service at affordable prices.">Kaliteli hizmeti uygun fiyatlarla sunarak bütçenize saygı duyuyoruz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2 data-tr="Projenizi Birlikte Hayata Geçirelim" data-en="Let's Bring Your Project to Life Together">Projenizi Birlikte Hayata Geçirelim</h2>
+        <p data-tr="IT ihtiyaçlarınız için hemen bizimle iletişime geçin. Uzman ekibimiz size özel çözümler sunmak için hazır." data-en="Contact us now for your IT needs. Our expert team is ready to offer tailored solutions for you.">IT ihtiyaçlarınız için hemen bizimle iletişime geçin. Uzman ekibimiz size özel çözümler sunmak için hazır.</p>
+        <a href="contact.html" class="btn btn-primary" data-tr="Ücretsiz Danışmanlık Alın" data-en="Get Free Consultation">Ücretsiz Danışmanlık Alın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand">
+            <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+          </a>
+          <p data-tr="Teknolojide güvenilir çözüm ortağınız. Restoran otomasyonu, kamera sistemleri ve bilişim çözümleri." data-en="Your reliable technology solutions partner. Restaurant automation, camera systems, and IT solutions.">Teknolojide güvenilir çözüm ortağınız. Restoran otomasyonu, kamera sistemleri ve bilişim çözümleri.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="Sayfalar" data-en="Pages">Sayfalar</h4>
+          <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+          <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+          <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+          <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="Hizmetler" data-en="Services">Hizmetler</h4>
+          <a href="services.html" data-tr="Restoran Otomasyonu" data-en="Restaurant Automation">Restoran Otomasyonu</a>
+          <a href="services.html" data-tr="Kamera Sistemleri" data-en="Camera Systems">Kamera Sistemleri</a>
+          <a href="services.html" data-tr="Bilişim Çözümleri" data-en="IT Solutions">Bilişim Çözümleri</a>
+          <a href="services.html" data-tr="Teknik Destek" data-en="Technical Support">Teknik Destek</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+          <a href="tel:+905001234567">+90 500 123 45 67</a>
+          <a href="mailto:info@ever4est.com">info@ever4est.com</a>
+          <a data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Ever4est. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></span>
+        <span data-tr="IT Çözüm Hizmetleri" data-en="IT Solution Services">IT Çözüm Hizmetleri</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/905001234567" target="_blank" class="whatsapp-btn" id="whatsappBtn" aria-label="WhatsApp">
+    <span class="whatsapp-tooltip" data-tr="Bize Ulaşın" data-en="Contact Us">Bize Ulaşın</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-tooltip" data-tr="Bize Yazın" data-en="Chat with Us">Bize Yazın</span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/gsap-animations.js"></script>
+</body>
+</html>
+

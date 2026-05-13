@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hakkımızda — Ever4est</title>
+  <meta name="description" content="Ever4est hakkında bilgi edinin. IT alanında güvenilir çözüm ortağınız.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logolar/logo_new.png" type="image/png">
+</head>
+<body>
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+
+  <!-- PARTICLE BACKGROUND -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- CURSOR TRAIL -->
+  <div id="cursorTrail"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+        <li><a href="about.html" class="active" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a></li>
+        <li><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="lang-toggle">
+          <button class="active" data-lang="tr">TR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+    <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+    <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <h1 class="reveal" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</h1>
+      <p class="reveal reveal-delay-1" data-tr="Ever4est'i daha yakından tanıyın." data-en="Get to know Ever4est better.">Ever4est'i daha yakından tanıyın.</p>
+      <div class="breadcrumb reveal reveal-delay-2">
+        <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+        <span class="sep">/</span>
+        <span data-tr="Hakkımızda" data-en="About">Hakkımızda</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text reveal">
+          <span class="section-label"><span class="line"></span> <span data-tr="BİZ KİMİZ?" data-en="WHO ARE WE?">BİZ KİMİZ?</span></span>
+          <h2 data-tr="Teknolojide Güvenilir Çözüm Ortağınız" data-en="Your Reliable Technology Solutions Partner">Teknolojide Güvenilir Çözüm Ortağınız</h2>
+          <p data-tr="Ever4est olarak, bilgi teknolojileri alanında kapsamlı çözümler sunmaktayız. Restoran otomasyon yazılımlarından güvenlik kamera sistemlerine, bilgisayar ve bilişim cihazlarının satışından teknik destek hizmetlerine kadar geniş bir yelpazede faaliyet gösteriyoruz." data-en="As Ever4est, we provide comprehensive solutions in the field of information technology. We operate in a wide range from restaurant automation software to security camera systems, from the sale of computers and IT devices to technical support services.">Ever4est olarak, bilgi teknolojileri alanında kapsamlı çözümler sunmaktayız. Restoran otomasyon yazılımlarından güvenlik kamera sistemlerine, bilgisayar ve bilişim cihazlarının satışından teknik destek hizmetlerine kadar geniş bir yelpazede faaliyet gösteriyoruz.</p>
+          <p data-tr="Müşterilerimizin ihtiyaçlarını en iyi şekilde anlayarak, onlara özel çözümler geliştirmeyi hedefliyoruz. Deneyimli ekibimiz ve yenilikçi yaklaşımımızla sektörde fark yaratıyoruz." data-en="We aim to develop custom solutions by understanding our customers' needs in the best way possible. We make a difference in the industry with our experienced team and innovative approach.">Müşterilerimizin ihtiyaçlarını en iyi şekilde anlayarak, onlara özel çözümler geliştirmeyi hedefliyoruz. Deneyimli ekibimiz ve yenilikçi yaklaşımımızla sektörde fark yaratıyoruz.</p>
+        </div>
+        <div class="about-image reveal reveal-delay-1">
+          <img src="assets/images/computer.png" alt="Ever4est Ofis">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <h3 data-tr="Misyonumuz" data-en="Our Mission">Misyonumuz</h3>
+          <p data-tr="İşletmelerin teknolojik altyapılarını en verimli şekilde kurarak, iş süreçlerini optimize etmek ve rekabet güçlerini artırmak." data-en="To optimize business processes and increase competitive power by establishing the most efficient technological infrastructure for businesses.">İşletmelerin teknolojik altyapılarını en verimli şekilde kurarak, iş süreçlerini optimize etmek ve rekabet güçlerini artırmak.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 data-tr="Vizyonumuz" data-en="Our Vision">Vizyonumuz</h3>
+          <p data-tr="Türkiye'nin lider IT çözüm ortağı olarak, teknolojinin gücünü her işletmeye ulaştırmak ve dijital dönüşüme öncülük etmek." data-en="As Turkey's leading IT solutions partner, to bring the power of technology to every business and lead digital transformation.">Türkiye'nin lider IT çözüm ortağı olarak, teknolojinin gücünü her işletmeye ulaştırmak ve dijital dönüşüme öncülük etmek.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-tr="Değerlerimiz" data-en="Our Values">Değerlerimiz</h3>
+          <p data-tr="Güvenilirlik, yenilikçilik, müşteri odaklılık ve kalite standartlarına bağlılık ile hizmet veriyoruz." data-en="We serve with reliability, innovation, customer focus, and commitment to quality standards.">Güvenilirlik, yenilikçilik, müşteri odaklılık ve kalite standartlarına bağlılık ile hizmet veriyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2 data-tr="Birlikte Çalışalım" data-en="Let's Work Together">Birlikte Çalışalım</h2>
+        <p data-tr="IT ihtiyaçlarınız için hemen bizimle iletişime geçin." data-en="Contact us now for your IT needs.">IT ihtiyaçlarınız için hemen bizimle iletişime geçin.</p>
+        <a href="contact.html" class="btn btn-primary" data-tr="İletişime Geçin" data-en="Contact Us">İletişime Geçin</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand">
+            <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+          </a>
+          <p data-tr="Teknolojide güvenilir çözüm ortağınız." data-en="Your reliable technology solutions partner.">Teknolojide güvenilir çözüm ortağınız.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="Sayfalar" data-en="Pages">Sayfalar</h4>
+          <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+          <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+          <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+          <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="Hizmetler" data-en="Services">Hizmetler</h4>
+          <a href="services.html" data-tr="Restoran Otomasyonu" data-en="Restaurant Automation">Restoran Otomasyonu</a>
+          <a href="services.html" data-tr="Kamera Sistemleri" data-en="Camera Systems">Kamera Sistemleri</a>
+          <a href="services.html" data-tr="Bilişim Çözümleri" data-en="IT Solutions">Bilişim Çözümleri</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+          <a href="tel:+905001234567">+90 500 123 45 67</a>
+          <a href="mailto:info@ever4est.com">info@ever4est.com</a>
+          <a data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Ever4est. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></span>
+        <span data-tr="IT Çözüm Hizmetleri" data-en="IT Solution Services">IT Çözüm Hizmetleri</span>
+      </div>
+    </div>
+  </footer>
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/905001234567" target="_blank" class="whatsapp-btn" id="whatsappBtn" aria-label="WhatsApp">
+    <span class="whatsapp-tooltip" data-tr="Bize Ulaşın" data-en="Contact Us">Bize Ulaşın</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-tooltip" data-tr="Bize Yazın" data-en="Chat with Us">Bize Yazın</span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/gsap-animations.js"></script>
+</body>
+</html>
+
