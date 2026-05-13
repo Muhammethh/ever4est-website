@@ -618,8 +618,9 @@ img { max-width: 100%; display: block; }
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0; /* Just above background, behind content */
+  z-index: 9989; /* Just below navbar (1000) wait, navbar is 1000, so let's put it at 998 to be below navbar but above content, or 9990 to be on top of everything. Let's do 9989. */
   pointer-events: none; /* Let clicks pass through */
+  mix-blend-mode: screen;
 }
 
 /* Light mode adjustments for fluid (handled mostly via JS options, but mix-blend-mode can help) */

@@ -397,46 +397,53 @@ function initCursorTrail() {
   if (window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window) return;
 
   const canvas = document.getElementById('fluidCanvas');
-  if (!canvas || typeof WebGLFluid !== 'function') return;
+  if (!canvas) return;
 
-  // Initialize the fluid simulation
-  // This creates the smoke-like fluid effect that follows the cursor
+  if (typeof WebGLFluid !== 'function') {
+    console.error('WebGLFluid library not loaded!');
+    return;
+  }
+
+  // To allow clicking on elements behind the canvas, the canvas has pointer-events: none.
+  // However, WebGLFluid binds mouse events directly to the canvas element.
+  // We proxy addEventListener to the window so it still receives mouse movements.
+  const originalAddEventListener = canvas.addEventListener;
+  canvas.addEventListener = function(type, listener, options) {
+    if (type === 'mousedown' || type === 'mousemove' || type === 'mouseup' || type.startsWith('touch')) {
+      window.addEventListener(type, listener, options);
+    } else {
+      originalAddEventListener.call(canvas, type, listener, options);
+    }
+  };
+
+  // Initialize the fluid simulation using the CDN script
   WebGLFluid(canvas, {
-    TRIGGER: 'hover',        // Trigger on mouse move/hover
-    IMMEDIATE: false,        // Don't splat randomly on load
-    NUM_DYES: 3,             // Number of colors
-    DENSITY_DISSIPATION: 2.5,// How fast the smoke disappears (higher = faster)
-    VELOCITY_DISSIPATION: 2.0,// How fast the movement stops
-    PRESSURE: 0.1,           // Fluid pressure
-    PRESSURE_ITERATIONS: 20, // Fluid quality
-    CURL: 3,                 // Swirl amount
-    SPLAT_RADIUS: 0.15,      // Size of the cursor splat
-    SPLAT_FORCE: 6000,       // Speed of the fluid injection
-    SHADING: true,           // Give it a 3D/glow feel
-    COLORFUL: false,         // We want specific colors, not random RGB
+    TRIGGER: 'hover',
+    IMMEDIATE: false,
+    NUM_DYES: 3,
+    DENSITY_DISSIPATION: 3.5,
+    VELOCITY_DISSIPATION: 2.0,
+    PRESSURE: 0.1,
+    PRESSURE_ITERATIONS: 20,
+    CURL: 3,
+    SPLAT_RADIUS: 0.2,
+    SPLAT_FORCE: 6000,
+    SHADING: true,
+    COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 0, g: 0, b: 0, a: 0 }, // Transparent background
+    BACK_COLOR: { r: 0, g: 0, b: 0, a: 0 },
     TRANSPARENT: true,
-    BLOOM: true,             // Add glow
+    BLOOM: true,
     BLOOM_ITERATIONS: 8,
     BLOOM_RESOLUTION: 256,
     BLOOM_INTENSITY: 0.8,
     BLOOM_THRESHOLD: 0.6,
     BLOOM_SOFT_KNEE: 0.7,
-    SUNRAYS: true,           // Light rays through the smoke
+    SUNRAYS: true,
     SUNRAYS_RESOLUTION: 196,
     SUNRAYS_WEIGHT: 1.0,
   });
-
-  // Since we set COLORFUL: false, the default color is mostly white/gray in the library
-  // To make it green like Ever4est, we can use the library's built in color or inject specific splats
-  // A simpler way is to let the script run, but the WebGLFluid library automatically randomizes colors
-  // if we set COLORFUL: true. Let's enable COLORFUL but the WebGLFluid default doesn't let us easily 
-  // set a specific palette through simple options without modifying its source in some versions.
-  // Actually, setting COLORFUL: true creates a rainbow. 
-  // Wait, let's just add a green tint via CSS since the canvas has a transparent background!
-  canvas.style.filter = "sepia(1) hue-rotate(90deg) saturate(300%) brightness(1.2)";
 }
 
 // ========== DARK/LIGHT MODE TOGGLE ==========
