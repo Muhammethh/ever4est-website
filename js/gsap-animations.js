@@ -407,10 +407,24 @@ function initCursorTrail() {
   // To allow clicking on elements behind the canvas, the canvas has pointer-events: none.
   // However, WebGLFluid binds mouse events directly to the canvas element.
   // We proxy addEventListener to the window so it still receives mouse movements.
+  // We also wrap the event object in a Proxy because WebGLFluid uses e.offsetX/e.offsetY,
+  // which change randomly depending on which nested DOM element is being hovered.
+  // By returning e.clientX/e.clientY (which are relative to the viewport), the coordinates stay accurate.
   const originalAddEventListener = canvas.addEventListener;
   canvas.addEventListener = function(type, listener, options) {
     if (type === 'mousedown' || type === 'mousemove' || type === 'mouseup' || type.startsWith('touch')) {
-      window.addEventListener(type, listener, options);
+      const wrappedListener = function(e) {
+        const proxyEvent = new Proxy(e, {
+          get(target, prop) {
+            if (prop === 'offsetX') return target.clientX;
+            if (prop === 'offsetY') return target.clientY;
+            const value = target[prop];
+            return typeof value === 'function' ? value.bind(target) : value;
+          }
+        });
+        listener(proxyEvent);
+      };
+      window.addEventListener(type, wrappedListener, options);
     } else {
       originalAddEventListener.call(canvas, type, listener, options);
     }
