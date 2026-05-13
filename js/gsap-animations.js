@@ -440,8 +440,8 @@ function initCursorTrail() {
     PRESSURE: 0.1,
     PRESSURE_ITERATIONS: 20,
     CURL: 3,
-    SPLAT_RADIUS: 0.2,
-    SPLAT_FORCE: 6000,
+    SPLAT_RADIUS: 0.25,
+    SPLAT_FORCE: 4000,       // Reduced force for a softer appearance
     SHADING: true,
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
@@ -451,12 +451,12 @@ function initCursorTrail() {
     BLOOM: true,
     BLOOM_ITERATIONS: 8,
     BLOOM_RESOLUTION: 256,
-    BLOOM_INTENSITY: 0.8,
-    BLOOM_THRESHOLD: 0.6,
+    BLOOM_INTENSITY: 0.3,    // Reduced from 0.8 to soften the light
+    BLOOM_THRESHOLD: 0.8,    // Increased so only the brightest parts glow
     BLOOM_SOFT_KNEE: 0.7,
     SUNRAYS: true,
     SUNRAYS_RESOLUTION: 196,
-    SUNRAYS_WEIGHT: 1.0,
+    SUNRAYS_WEIGHT: 0.4,     // Reduced from 1.0 to soften sunrays
   });
 }
 
