@@ -391,91 +391,80 @@ function initParticleBackground() {
   });
 }
 
-// ========== CURSOR TRAIL (Canvas Ribbon) ==========
+// ========== CURSOR BLOB (Liquid Gradient - inspired by heycalli.com) ==========
 function initCursorTrail() {
-  // Only on desktop
+  // Only on desktop with fine pointer
   if (window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window) return;
 
   const trailContainer = document.getElementById('cursorTrail');
-  if (!trailContainer) return;
+  if (trailContainer) trailContainer.remove();
 
-  // Replace container with canvas
-  const canvas = document.createElement('canvas');
-  canvas.id = 'cursorTrailCanvas';
-  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9990;pointer-events:none;';
-  trailContainer.replaceWith(canvas);
+  // Create blob element (large gradient glow)
+  const blob = document.createElement('div');
+  blob.className = 'cursor-blob';
+  document.body.appendChild(blob);
 
-  const ctx = canvas.getContext('2d');
-  const points = [];
-  const maxPoints = 50;
-  let mouseX = -100, mouseY = -100;
+  // Create dot element (small precision cursor)
+  const dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  document.body.appendChild(dot);
+
+  let mouseX = -500, mouseY = -500;
+  let blobX = -500, blobY = -500;
+  let dotX = -500, dotY = -500;
   let isHovering = false;
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
+  // Show after first mouse move
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+
+    if (!blob.classList.contains('active')) {
+      blob.classList.add('active');
+      dot.classList.add('active');
+    }
   });
 
-  // Detect hover on interactive elements for glow effect
-  document.querySelectorAll('a, button, .service-card, .why-card, .value-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { isHovering = true; });
-    el.addEventListener('mouseleave', () => { isHovering = false; });
+  // Hide when mouse leaves the window
+  document.addEventListener('mouseleave', () => {
+    blob.classList.remove('active');
+    dot.classList.remove('active');
+  });
+  document.addEventListener('mouseenter', () => {
+    blob.classList.add('active');
+    dot.classList.add('active');
   });
 
+  // Detect hover on interactive elements
+  const interactiveSelector = 'a, button, input, select, textarea, .service-card, .why-card, .value-card, .nav-brand, .whatsapp-btn, .cta-box';
+  document.querySelectorAll(interactiveSelector).forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      isHovering = true;
+      blob.classList.add('hovering');
+      dot.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      isHovering = false;
+      blob.classList.remove('hovering');
+      dot.classList.remove('hovering');
+    });
+  });
+
+  // Animation loop — blob follows with inertia, dot follows closely
   function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Blob: smooth follow with heavy lerp (creates the liquid/inertia feel)
+    const blobSpeed = 0.08;
+    blobX += (mouseX - blobX) * blobSpeed;
+    blobY += (mouseY - blobY) * blobSpeed;
+    blob.style.left = blobX + 'px';
+    blob.style.top = blobY + 'px';
 
-    // Add current point
-    points.push({ x: mouseX, y: mouseY, age: 0 });
-
-    // Limit points
-    if (points.length > maxPoints) {
-      points.shift();
-    }
-
-    // Age points
-    points.forEach(p => p.age++);
-
-    // Draw trail ribbon
-    if (points.length > 2) {
-      for (let i = 1; i < points.length; i++) {
-        const p1 = points[i - 1];
-        const p2 = points[i];
-        const progress = i / points.length; // 0 = oldest, 1 = newest
-        const lineWidth = progress * (isHovering ? 6 : 4);
-        const alpha = progress * (isHovering ? 0.7 : 0.5);
-
-        ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.strokeStyle = isHovering
-          ? `rgba(46, 204, 113, ${alpha})`
-          : `rgba(29, 185, 84, ${alpha})`;
-        ctx.lineWidth = lineWidth;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        ctx.stroke();
-      }
-
-      // Glow effect on newest point
-      const newest = points[points.length - 1];
-      if (isHovering) {
-        const glow = ctx.createRadialGradient(newest.x, newest.y, 0, newest.x, newest.y, 15);
-        glow.addColorStop(0, 'rgba(29, 185, 84, 0.3)');
-        glow.addColorStop(1, 'rgba(29, 185, 84, 0)');
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(newest.x, newest.y, 15, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
+    // Dot: quick follow
+    const dotSpeed = 0.25;
+    dotX += (mouseX - dotX) * dotSpeed;
+    dotY += (mouseY - dotY) * dotSpeed;
+    dot.style.left = dotX + 'px';
+    dot.style.top = dotY + 'px';
 
     requestAnimationFrame(animate);
   }

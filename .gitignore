@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.DS_Store
+
+# Ignore AI generated skills and agents
+skills/
+agents/
