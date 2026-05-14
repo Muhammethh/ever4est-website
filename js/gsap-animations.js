@@ -411,9 +411,9 @@ function initCursorTrail() {
   // which change randomly depending on which nested DOM element is being hovered.
   // By returning e.clientX/e.clientY (which are relative to the viewport), the coordinates stay accurate.
   const originalAddEventListener = canvas.addEventListener;
-  canvas.addEventListener = function(type, listener, options) {
+  canvas.addEventListener = function (type, listener, options) {
     if (type === 'mousedown' || type === 'mousemove' || type === 'mouseup' || type.startsWith('touch')) {
-      const wrappedListener = function(e) {
+      const wrappedListener = function (e) {
         const proxyEvent = new Proxy(e, {
           get(target, prop) {
             if (prop === 'offsetX') return target.clientX;
@@ -430,18 +430,38 @@ function initCursorTrail() {
     }
   };
 
+  // Block spacebar from triggering random smoke splats.
+  // The WebGL Fluid library registers a 'keydown' listener on window that fires
+  // random splats when Space is pressed. We monkey-patch window.addEventListener
+  // BEFORE calling WebGLFluid so we can wrap the library's handler and filter out
+  // spacebar events. This is more reliable than capture-phase interception.
+  const _origWindowAddEventListener = window.addEventListener.bind(window);
+  window.addEventListener = function (type, fn, opts) {
+    if (type === 'keydown') {
+      const wrappedFn = function (e) {
+        if (e.code === 'Space' || e.key === ' ') {
+          return; // silently swallow spacebar
+        }
+        fn(e);
+      };
+      _origWindowAddEventListener(type, wrappedFn, opts);
+    } else {
+      _origWindowAddEventListener(type, fn, opts);
+    }
+  };
+
   // Initialize the fluid simulation using the CDN script
   WebGLFluid(canvas, {
     TRIGGER: 'hover',
     IMMEDIATE: false,
-    NUM_DYES: 3,
-    DENSITY_DISSIPATION: 3.5,
-    VELOCITY_DISSIPATION: 2.0,
+    NUM_DYES: 6,
+    DENSITY_DISSIPATION: 4.8,
+    VELOCITY_DISSIPATION: 1.2,
     PRESSURE: 0.1,
-    PRESSURE_ITERATIONS: 20,
-    CURL: 3,
-    SPLAT_RADIUS: 0.25,
-    SPLAT_FORCE: 4000,       // Reduced force for a softer appearance
+    PRESSURE_ITERATIONS: 50,
+    CURL: 2,
+    SPLAT_RADIUS: 0.20,
+    SPLAT_FORCE: 6000,
     SHADING: true,
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
@@ -449,15 +469,18 @@ function initCursorTrail() {
     BACK_COLOR: { r: 0, g: 0, b: 0, a: 0 },
     TRANSPARENT: true,
     BLOOM: true,
-    BLOOM_ITERATIONS: 8,
+    BLOOM_ITERATIONS: 5,
     BLOOM_RESOLUTION: 256,
-    BLOOM_INTENSITY: 0.3,    // Reduced from 0.8 to soften the light
-    BLOOM_THRESHOLD: 0.8,    // Increased so only the brightest parts glow
+    BLOOM_INTENSITY: 0.3,
+    BLOOM_THRESHOLD: 0.85,
     BLOOM_SOFT_KNEE: 0.7,
     SUNRAYS: true,
     SUNRAYS_RESOLUTION: 196,
-    SUNRAYS_WEIGHT: 0.4,     // Reduced from 1.0 to soften sunrays
+    SUNRAYS_WEIGHT: 0.6,
   });
+
+  // Restore original addEventListener so other code isn't affected
+  window.addEventListener = _origWindowAddEventListener;
 }
 
 // ========== DARK/LIGHT MODE TOGGLE ==========
