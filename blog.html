@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog ve Bilgi Bankası | Ever4est IT Çözüm Ortağı</title>
+  <meta name="description" content="Ever4est Blog: Bilişim, bilgisayar tamiri, kamera sistemleri ve restoran otomasyonu hakkında en güncel haberler, ipuçları ve teknoloji trendleri.">
+  <meta name="keywords" content="Ever4est blog, teknoloji haberleri, bilgisayar tamiri ipuçları, kamera sistemi rehberi, restoran otomasyon trendleri, bilişim bilgi bankası">
+  <meta name="author" content="Ever4est">
+  <meta name="theme-color" content="#1DB954">
+  <link rel="canonical" href="https://ever4est.com/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog ve Bilgi Bankası | Ever4est">
+  <meta property="og:description" content="Bilişim ve teknoloji dünyasından en güncel haberler, ipuçları ve rehberler.">
+  <meta property="og:image" content="https://ever4est.com/logolar/og-image.png">
+  <meta property="og:url" content="https://ever4est.com/blog.html">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Ever4est">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logolar/logo_new.png" type="image/png">
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://ever4est.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ever4est.com/blog.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="pageTransitionOverlay">
+    <div class="transition-layer tl-1"></div>
+    <div class="transition-layer tl-2"></div>
+    <div class="transition-layer tl-3"></div>
+    <div class="transition-content" id="transitionContent">
+      <img src="logolar/logo-dark.png" alt="Ever4est Bilgisayar Tamiri ve IT Çözümleri" class="transition-logo" id="transitionLogo">
+      <span class="transition-page-name" id="transitionPageName"></span>
+    </div>
+  </div>
+
+  <!-- BACKGROUNDS -->
+  <canvas id="particleCanvas"></canvas>
+  <canvas id="fluidCanvas"></canvas>
+  <div id="cursorTrail"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <img src="logolar/logo-dark.png" alt="Ever4est Bilgisayar Tamiri ve IT Çözümleri" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+        <li><a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a></li>
+        <li><a href="sss.html" data-tr="SSS" data-en="FAQ">SSS</a></li>
+        <li><a href="blog.html" class="active" data-tr="Blog" data-en="Blog">Blog</a></li>
+        <li><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="lang-toggle">
+          <button class="active" data-lang="tr">TR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+    <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+    <a href="sss.html" data-tr="SSS" data-en="FAQ">SSS</a>
+    <a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a>
+    <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <h1 class="reveal" data-tr="Blog & Bilgi Bankası" data-en="Blog & Knowledge Base">Blog & Bilgi Bankası</h1>
+      <p class="reveal reveal-delay-1" data-tr="Bilişim dünyasından ipuçları, teknoloji trendleri ve rehberler." data-en="Tips, tech trends, and guides from the IT world.">Bilişim dünyasından ipuçları, teknoloji trendleri ve rehberler.</p>
+      <div class="breadcrumb reveal reveal-delay-2">
+        <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+        <span class="sep">/</span>
+        <span data-tr="Blog" data-en="Blog">Blog</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- BLOG GRID -->
+      <div class="blog-grid">
+        
+        <!-- Blog Post 1 -->
+        <article class="blog-card reveal">
+          <div class="blog-card-image">
+            <div class="blog-category">Bilişim & Yazılım</div>
+            <!-- Using existing computer image as placeholder -->
+            <img src="assets/images/computer.png" alt="SSD ve RAM Yükseltme ile Bilgisayar Hızlandırma Rehberi" loading="lazy">
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 12 Mayıs 2026</span>
+            </div>
+            <h3 class="blog-title" data-tr="SSD ve RAM Yükseltme ile Bilgisayar Hızlandırma Rehberi" data-en="Computer Speed-up Guide with SSD and RAM Upgrade">SSD ve RAM Yükseltme ile Bilgisayar Hızlandırma Rehberi</h3>
+            <p class="blog-excerpt" data-tr="Eski bilgisayarınızı yenisiyle değiştirmeden önce SSD ve RAM yükseltmesi yaparak nasıl yüksek performans elde edebileceğinizi öğrenin." data-en="Learn how to get high performance by upgrading SSD and RAM before replacing your old computer.">Eski bilgisayarınızı yenisiyle değiştirmeden önce SSD ve RAM yükseltmesi yaparak nasıl yüksek performans elde edebileceğinizi öğrenin.</p>
+            <a href="#" class="btn btn-outline btn-sm" data-tr="Devamını Oku" data-en="Read More">Devamını Oku</a>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card reveal reveal-delay-1">
+          <div class="blog-card-image">
+            <div class="blog-category">Güvenlik Sistemleri</div>
+            <img src="assets/images/camera.png" alt="Doğru Güvenlik Kamerası Seçimi İçin İpuçları" loading="lazy">
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 05 Mayıs 2026</span>
+            </div>
+            <h3 class="blog-title" data-tr="İşletmeniz İçin Doğru Güvenlik Kamerası Nasıl Seçilir?" data-en="How to Choose the Right Security Camera for Your Business?">İşletmeniz İçin Doğru Güvenlik Kamerası Nasıl Seçilir?</h3>
+            <p class="blog-excerpt" data-tr="IP kamera mı, analog mu? Gece görüşü, dome ve bullet kameralar arasındaki farklar nelerdir? İş yerinize en uygun sistemi seçin." data-en="IP or analog? What are the differences between night vision, dome, and bullet cameras? Choose the best system for your business.">IP kamera mı, analog mu? Gece görüşü, dome ve bullet kameralar arasındaki farklar nelerdir? İş yerinize en uygun sistemi seçin.</p>
+            <a href="#" class="btn btn-outline btn-sm" data-tr="Devamını Oku" data-en="Read More">Devamını Oku</a>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-card reveal reveal-delay-2">
+          <div class="blog-card-image">
+            <div class="blog-category">Restoran Otomasyonu</div>
+            <img src="assets/images/restaurant.png" alt="Restoran Otomasyonunun İşletmenize Sağlayacağı Avantajlar" loading="lazy">
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 28 Nisan 2026</span>
+            </div>
+            <h3 class="blog-title" data-tr="POS ve Adisyon Sistemlerinin Restoran Verimliliğine Etkisi" data-en="Impact of POS and Order Systems on Restaurant Efficiency">POS ve Adisyon Sistemlerinin Restoran Verimliliğine Etkisi</h3>
+            <p class="blog-excerpt" data-tr="Dijital adisyon ve POS otomasyon sistemleri kullanarak sipariş hatalarını nasıl sıfıra indireceğinizi keşfedin." data-en="Discover how to reduce order errors to zero using digital check and POS automation systems.">Dijital adisyon ve POS otomasyon sistemleri kullanarak sipariş hatalarını nasıl sıfıra indireceğinizi keşfedin.</p>
+            <a href="#" class="btn btn-outline btn-sm" data-tr="Devamını Oku" data-en="Read More">Devamını Oku</a>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand reveal">
+          <img src="logolar/logo-dark.png" alt="Ever4est Bilgisayar Tamiri ve IT Çözümleri" style="height:40px">
+          <p data-tr="Ever4est, işletmelerin ve bireylerin IT ihtiyaçları için yenilikçi, güvenilir ve uçtan uca çözümler sunan teknoloji ortağınızdır." data-en="Ever4est is your technology partner providing innovative, reliable, and end-to-end IT solutions for businesses and individuals.">Ever4est, işletmelerin ve bireylerin IT ihtiyaçları için yenilikçi, güvenilir ve uçtan uca çözümler sunan teknoloji ortağınızdır.</p>
+        </div>
+        <div class="footer-col reveal reveal-delay-1">
+          <h4 data-tr="Hızlı Linkler" data-en="Quick Links">Hızlı Linkler</h4>
+          <a href="about.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+          <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+          <a href="sss.html" data-tr="Sıkça Sorulan Sorular" data-en="FAQ">Sıkça Sorulan Sorular</a>
+          <a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a>
+          <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+        </div>
+        <div class="footer-col reveal reveal-delay-2">
+          <h4 data-tr="Hizmetlerimiz" data-en="Our Services">Hizmetlerimiz</h4>
+          <a href="services.html#restoran" data-tr="Restoran Otomasyonu" data-en="Restaurant Automation">Restoran Otomasyonu</a>
+          <a href="services.html#kamera" data-tr="Kamera Sistemleri" data-en="Camera Systems">Kamera Sistemleri</a>
+          <a href="services.html#bilisim" data-tr="Bilişim Çözümleri" data-en="IT Solutions">Bilişim Çözümleri</a>
+          <a href="services.html#yazilim" data-tr="Yazılım Çözümleri" data-en="Software Solutions">Yazılım Çözümleri</a>
+        </div>
+        <div class="footer-col reveal reveal-delay-3">
+          <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+          <a href="mailto:info@ever4est.com">info@ever4est.com</a>
+          <a href="tel:+905001234567">+90 (500) 123 45 67</a>
+          <p style="color:var(--text-secondary);font-size:0.88rem;margin-top:10px;" data-tr="Dudullu, Ümraniye / İstanbul" data-en="Dudullu, Umraniye / Istanbul">Dudullu, Ümraniye / İstanbul</p>
+        </div>
+      </div>
+      <div class="footer-bottom reveal">
+        <p>&copy; <span id="year"></span> Ever4est. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+        <div class="social-links" style="display:flex;gap:15px;">
+          <!-- Social icons... -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

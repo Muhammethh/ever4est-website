@@ -11,21 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarParallax();
 });
 
-// ========== PAGE TRANSITION ==========
+// ========== PAGE TRANSITION (Multi-Layer Stagger) ==========
 function initPageTransition() {
   const overlay = document.getElementById('pageTransitionOverlay');
-  if (!overlay) return;
+  const layers = overlay ? overlay.querySelectorAll('.transition-layer') : [];
+  if (!overlay || !layers.length) return;
 
-  // Entry animation - reveal page
-  gsap.to(overlay, {
+  // --- ENTRY: Layers slide up with stagger to reveal the page ---
+  gsap.to(layers, {
     scaleY: 0,
-    duration: 0.8,
+    duration: 0.6,
     ease: 'power4.inOut',
     transformOrigin: 'top',
-    delay: 0.1
+    stagger: 0.1,
+    delay: 0.15,
+    onComplete: () => {
+      overlay.style.pointerEvents = 'none';
+    }
   });
 
-  // Intercept link clicks for page transitions
+  // --- EXIT: Intercept link clicks ---
   document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('javascript:')) return;
@@ -34,11 +39,15 @@ function initPageTransition() {
       e.preventDefault();
       const target = href;
 
-      gsap.to(overlay, {
+      // Reset layers for exit animation
+      gsap.set(layers, { scaleY: 0, transformOrigin: 'bottom' });
+
+      // Slide layers up with stagger to cover the page
+      gsap.to(layers, {
         scaleY: 1,
-        duration: 0.6,
+        duration: 0.5,
         ease: 'power4.inOut',
-        transformOrigin: 'bottom',
+        stagger: 0.1,
         onComplete: () => {
           window.location.href = target;
         }
@@ -148,14 +157,14 @@ function initGSAPReveal() {
     const img = detail.querySelector('.service-detail-img');
     if (content) {
       gsap.from(content, {
-        scrollTrigger: { trigger: detail, start: 'top 80%', once: true },
-        x: -50, opacity: 0, duration: 0.9, ease: 'power3.out'
+        scrollTrigger: { trigger: detail, start: 'top 90%', once: true },
+        x: -50, opacity: 0, duration: 0.8, ease: 'power3.out'
       });
     }
     if (img) {
       gsap.from(img, {
-        scrollTrigger: { trigger: detail, start: 'top 80%', once: true },
-        x: 50, opacity: 0, duration: 0.9, ease: 'power3.out', delay: 0.15
+        scrollTrigger: { trigger: detail, start: 'top 90%', once: true },
+        x: 50, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.1
       });
     }
   });
