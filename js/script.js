@@ -87,7 +87,7 @@ function setLanguage(lang) {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         // skip — handled by placeholder logic below
       } else {
-        el.textContent = text;
+        el.innerHTML = text;
       }
     }
   });

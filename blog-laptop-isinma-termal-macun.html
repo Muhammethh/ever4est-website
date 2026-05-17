@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop Isınma Sorunu ve Termal Macun Yenileme | Ever4est Blog</title>
+  <meta name="description" content="Laptopunuz oyunlarda kapanıyor mu? Bilgisayar aşırı ısınma sorunları, fan temizliği ve sıvı metal vs termal macun yenileme rehberi.">
+  <meta name="keywords" content="laptop ısınma sorunu, bilgisayar kapanıyor, termal macun yenileme, fan temizliği, sıvı metal, bilgisayar tamiri, Ever4est">
+  <meta name="author" content="Ever4est">
+  <meta name="theme-color" content="#1DB954">
+  <link rel="canonical" href="https://ever4est.com/blog-laptop-isinma-termal-macun.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Laptop Isınma Sorunu ve Termal Macun Yenileme Rehberi">
+  <meta property="og:description" content="Bilgisayarınız aşırı mı ısınıyor? Fan temizliği ve kaliteli termal macun ile cihazınızı nasıl ipten alabileceğinizi öğrenin.">
+  <meta property="og:image" content="https://ever4est.com/logolar/og-image.png">
+  <meta property="og:url" content="https://ever4est.com/blog-laptop-isinma-termal-macun.html">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Ever4est">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logolar/logo_new.png" type="image/png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://ever4est.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ever4est.com/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "Laptop Isınma Sorunu", "item": "https://ever4est.com/blog-laptop-isinma-termal-macun.html"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Laptop Isınma Sorunu ve Termal Macun Yenileme Rehberi",
+    "author": {
+      "@type": "Organization",
+      "name": "Ever4est IT Çözümleri"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ever4est",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ever4est.com/logolar/logo-dark.png"
+      }
+    },
+    "datePublished": "2026-04-15",
+    "dateModified": "2026-05-15",
+    "image": "https://ever4est.com/logolar/og-image.png",
+    "description": "Laptopunuz oyunlarda kapanıyor mu? Bilgisayar aşırı ısınma sorunları, fan temizliği ve sıvı metal vs termal macun yenileme rehberi."
+  }
+  </script>
+</head>
+<body>
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="pageTransitionOverlay">
+    <div class="transition-layer tl-1"></div>
+    <div class="transition-layer tl-2"></div>
+    <div class="transition-layer tl-3"></div>
+    <div class="transition-content" id="transitionContent">
+      <img src="logolar/logo-dark.png" alt="Ever4est" class="transition-logo" id="transitionLogo">
+      <span class="transition-page-name" id="transitionPageName"></span>
+    </div>
+  </div>
+
+  <!-- BACKGROUNDS -->
+  <canvas id="particleCanvas"></canvas>
+  <canvas id="fluidCanvas"></canvas>
+  <div id="cursorTrail"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <img src="logolar/logo-dark.png" alt="Ever4est" class="brand-logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+        <li><a href="about.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a></li>
+        <li><a href="sss.html" data-tr="SSS" data-en="FAQ">SSS</a></li>
+        <li><a href="blog.html" class="active" data-tr="Blog" data-en="Blog">Blog</a></li>
+        <li><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="lang-toggle">
+          <button class="active" data-lang="tr">TR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <section class="section" style="padding-top: 150px; padding-bottom: 80px;">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; background: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border-color);">
+          <div class="modal-label" style="display:inline-flex; align-items:center; gap:10px; color:var(--primary); font-weight:600; font-size:0.9rem; margin-bottom:15px; letter-spacing:1px; text-transform:uppercase;">
+            <span class="line" style="width:30px; height:2px; background:var(--primary);"></span> Bilgisayar Tamiri
+          </div>
+          <h1 style="font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3;">Laptop Isınma Sorunu ve Termal Macun Yenileme Rehberi</h1>
+          
+          <div class="blog-article-meta" style="display:flex; gap:20px; color:var(--text-secondary); font-size:0.95rem; margin:16px 0 35px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
+            <span style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 15 Nisan 2026
+            </span>
+            <span style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 7 dk okuma
+            </span>
+          </div>
+
+          <div class="blog-article-body">
+            <h2>Laptopunuz Oyunlarda veya Zoom Toplantılarında Kapanıyor mu?</h2>
+            <p>Laptop'unuzun klavyesine dokunduğunuzda elinizi yakacak kadar ısınıyorsa, uçak motoru gibi fan sesi çıkarıyorsa veya oyun oynarken/video izlerken aniden kapanıyorsa, bilgisayarınız size acil yardım çağrısı yapıyor demektir. Bu durumu görmezden gelmek, anakart yanması veya işlemci (CPU/GPU) lehimlerinin atması gibi geri dönüşü olmayan masraflı arızalara yol açar.</p>
+
+            <h2>Thermal Throttling Nedir?</h2>
+            <p>Eskiden ısınan bilgisayarlar çalışmaya devam eder ve sonunda yanardı. Yeni nesil işlemcilerde ise koruma mekanizması vardır. Sıcaklık 90-95°C'ye ulaştığında bilgisayar yanmamak için işlemci hızını otomatik olarak yarı yarıya düşürür. Buna <strong>Thermal Throttling (Isıl Yavaşlatma)</strong> denir. Oyundayken aniden FPS'inizin 100'den 15'e düşmesinin ve takılmaların ana sebebi budur.</p>
+
+            <h2>Termal Macun Nedir ve Neden Kurur?</h2>
+            <p>İşlemci çipi (CPU) ile bakır soğutucu borular (heatsink) tam pürüzsüz görünse de mikroskobik düzeyde girintilidir. Termal macun bu boşlukları doldurarak ısının metal borulara hızlıca iletilmesini sağlar.</p>
+            <p>Oyun bilgisayarları ve sürekli yük altında çalışan cihazlarda termal macun <strong>1.5 ila 2 yıl içinde kurur, taşlaşır ve ısı iletim özelliğini kaybeder.</strong> Bu gerçekleştiğinde ısınan hava içeride hapsolur.</p>
+
+            <h2>Evde Kendim Termal Macun Değiştirebilir Miyim?</h2>
+            <p>Masaüstü bilgisayarlarda macun değişimi kolay olsa da, laptoplarda bu işlem ciddi riskler barındırır. Yeni nesil ince laptoplarda, kasayı açarken tırnakları kırmak, klavye flex kablolarını koparmak veya pili anakarttan ayırmadan müdahale edip statik elektrikle anakartı yakmak en sık karşılaştığımız son kullanıcı hatalarıdır.</p>
+
+            <h2>Sıvı Metal (Liquid Metal) mi, Standart Macun mu?</h2>
+            <ul>
+              <li><strong>Standart Termal Macun (Silikon/Gümüş bazlı):</strong> Güvenlidir, elektrik iletmez. Günlük kullanıcılar ve orta seviye oyuncular için en iyi seçimdir. (Örn: Arctic MX-6)</li>
+              <li><strong>Sıvı Metal (Liquid Metal):</strong> Isı iletim kapasitesi devasadır, sıcaklıkları 15-20°C düşürebilir. Ancak elektrik iletkendir. Yanlış sürüldüğünde anakarta damlarsa anında kısa devreye ve cihazın tamamen bozulmasına sebep olur. Sadece çok üst düzey gaming laptoplarda ve kesinlikle uzmanlarca uygulanmalıdır.</li>
+            </ul>
+
+            <div class="blog-info-box">
+              <strong>🌬️ Laptop Altı Soğutucular (CoolerPad) Gerçekten İşe Yarıyor mu?</strong>
+              Çok sık sorulan bu sorunun cevabı: Sadece geçici bir çözümdür. Laptop'un içindeki hava kanalları tozla tıkalıysa ve macun taşlaşmışsa, dışarıdan hava üflemek 2-3 derecelik önemsiz bir düşüş sağlar. Asıl çözüm "iç temizliktir".
+            </div>
+
+            <div class="blog-info-box" style="border-left-color: var(--primary);">
+              <strong>🔧 Profesyonel Bakım Zamanı</strong>
+              Bilgisayarınızın garantili ve güvenli bir şekilde içinin temizlenmesi, fan bakımlarının yapılması ve birinci kalite termal macun uygulanması için <a href="services.html#bilisim" style="color:var(--primary); text-decoration:underline;">Ever4est Bilgisayar Tamir Servisine</a> ulaşın. Aynı gün teslim ve %100 memnuniyet garantisi.
+            </div>
+
+            <h2>Sonuç</h2>
+            <p>Laptop temizliği ve termal macun değişimi, ertelenecek bir konu değildir. Yıllık düzenli bakım yaptırmak, bilgisayarınızın ömrünü uzatır, fan gürültüsünü keser ve ilk günkü performansına (sıfır takılma) geri dönmesini sağlar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand reveal">
+          <img src="logolar/logo-dark.png" alt="Ever4est" style="height:40px">
+          <p data-tr="Ever4est, işletmelerin ve bireylerin IT ihtiyaçları için yenilikçi, güvenilir ve uçtan uca çözümler sunan teknoloji ortağınızdır." data-en="Ever4est is your technology partner providing innovative, reliable, and end-to-end IT solutions for businesses and individuals.">Ever4est, işletmelerin ve bireylerin IT ihtiyaçları için yenilikçi, güvenilir ve uçtan uca çözümler sunan teknoloji ortağınızdır.</p>
+        </div>
+        <div class="footer-col reveal reveal-delay-1">
+          <h4 data-tr="Hızlı Linkler" data-en="Quick Links">Hızlı Linkler</h4>
+          <a href="about.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+          <a href="services.html" data-tr="Hizmetlerimiz" data-en="Services">Hizmetlerimiz</a>
+          <a href="sss.html" data-tr="Sıkça Sorulan Sorular" data-en="FAQ">Sıkça Sorulan Sorular</a>
+          <a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a>
+          <a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+        </div>
+        <div class="footer-col reveal reveal-delay-2">
+          <h4 data-tr="Hizmetlerimiz" data-en="Our Services">Hizmetlerimiz</h4>
+          <a href="services.html#restoran" data-tr="Restoran Otomasyonu" data-en="Restaurant Automation">Restoran Otomasyonu</a>
+          <a href="services.html#kamera" data-tr="Kamera Sistemleri" data-en="Camera Systems">Kamera Sistemleri</a>
+          <a href="services.html#bilisim" data-tr="Bilişim Çözümleri" data-en="IT Solutions">Bilişim Çözümleri</a>
+          <a href="services.html#yazilim" data-tr="Yazılım Çözümleri" data-en="Software Solutions">Yazılım Çözümleri</a>
+        </div>
+        <div class="footer-col reveal reveal-delay-3">
+          <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+          <a href="mailto:info@ever4est.com">info@ever4est.com</a>
+          <a href="tel:+905001234567">+90 (500) 123 45 67</a>
+          <p style="color:var(--text-secondary);font-size:0.88rem;margin-top:10px;" data-tr="Dudullu, Ümraniye / İstanbul" data-en="Dudullu, Umraniye / Istanbul">Dudullu, Ümraniye / İstanbul</p>
+        </div>
+      </div>
+      <div class="footer-bottom reveal">
+        <p>&copy; <span id="year"></span> Ever4est. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/905001234567" target="_blank" class="whatsapp-btn" id="whatsappBtn" aria-label="WhatsApp">
+    <span class="whatsapp-tooltip" data-tr="Bize Ulaşın" data-en="Contact Us">Bize Ulaşın</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-tooltip" data-tr="Bize Yazın" data-en="Chat with Us">Bize Yazın</span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/webgl-fluid@0.3"></script>
+  <script src="js/script.js"></script>
+  <script src="js/gsap-animations.js"></script>
+</body>
+</html>
